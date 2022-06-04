@@ -5,3 +5,8 @@
       debug: msg = "{{ansible_hostname}}"
     - name: show hostname
       command: "hostname"
+    - name: echo hostname stdout
+      command: hostname
+      register: remote_host
+    - name: echo remote host
+      debug: var=remote_host.stdout
