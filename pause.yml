@@ -1,8 +1,6 @@
----
 - hosts: localhost
   gather_facts: false
   connection: ansible.builtin.local
-  
   task:
     - name: pause 10 seconds
       ansible.builtin.pause: 
