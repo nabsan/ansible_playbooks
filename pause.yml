@@ -1,13 +1,12 @@
+---
 - hosts: all
-  gather_fact: false
+  gather_facts: false
   connection: ansible.builtin.local
   
   task:
     -name: pause 10 seconds
-     ansible.builtin.pause:
-       seconds: 10
+     ansible.builtin.pause: seconds: 10
        
     -name: pause 1 minutes
-     ansible.builtin.pause:
-       minutes: 1
+     ansible.builtin.pause: minutes: 1
        
