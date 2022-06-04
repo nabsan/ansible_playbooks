@@ -2,6 +2,6 @@
   tasks:
     - debug: msg="hello world!! nab"
     - name: debug ansible_hostname
-      debug: msg: "{{ansible_hostname}}"
+      debug: msg = "{{ansible_hostname}}"
     - name: show hostname
       command: "hostname"
