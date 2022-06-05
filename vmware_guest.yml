@@ -1,0 +1,46 @@
+- hosts: vcsim
+  gather_facts: false
+  connection: local
+  collections:
+    - community.vmware
+  tasks:
+
+  - name: Create a virtual machine
+    vmware_guest:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      port: '{{ vcenter_port }}'
+      validate_certs: no
+      datacenter: DC0
+      folder: /DC0/vm/
+      name: created_by_ansible
+      state: poweredon
+      guest_id: centos64Guest
+      esxi_hostname: DC0_H0
+      disk:
+      - size_gb: 10
+        type: thin
+        datastore: LocalDS_0
+      hardware:
+        memory_mb: 512
+        num_cpus: 4
+        scsi: paravirtual
+      networks:
+      - name: VM Network
+        device_type: vmxnet3
+
+  - name: Gather info from vcsim
+    vmware_guest_info:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      port: '{{ vcenter_port }}'
+      datacenter: DC0
+      name: created_by_ansible
+      validate_certs: no
+    register: info
+
+  - name: debug
+    debug:
+      var: info
