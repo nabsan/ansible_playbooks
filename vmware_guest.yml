@@ -1,4 +1,4 @@
-- hosts: vcsim
+- hosts: 127.0.0.1
   gather_facts: false
   connection: local
   collections:
