@@ -1,6 +1,10 @@
 ---
-- name: Install traceroute
-  yum:
-    name: traceroute
-    state: latest
+- name: Test win_ping
+  hosts: all
+
+  tasks:
+    - name: Install traceroute
+      yum:
+        name: traceroute
+        state: latest
     
