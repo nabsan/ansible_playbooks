@@ -1,9 +1,13 @@
 ---
-- name: add several users
-  user:
-    name: "{{ item.name }}"
-    state: present
-    groups: "{{ item.groups }}"
-  loop:
-    - { name: 'testuser1', groups: 'wheel' }
-    - { name: 'testuser2', groups: 'root' }
+- hosts: localhost
+  gather_facts: false
+  connection: ansible.builtin.local
+  tasks:
+    - name: add several users
+    user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+    loop:
+      - { name: 'testuser1', groups: 'wheel' }
+      - { name: 'testuser2', groups: 'root' }
