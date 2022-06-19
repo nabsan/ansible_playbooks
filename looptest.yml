@@ -4,11 +4,11 @@
   connection: ansible.builtin.local
   tasks:
     - name: add several users
-    - user:
-        name: "{{ item.name }}"
+      user:
+        name: "{{ item }}"
         state: present
-        groups: "{{ item.groups }}"
-    - loop:
-        - { name: 'testuser1', groups: 'wheel' }
-        - { name: 'testuser2', groups: 'root' }
+        groups: "wheel"
+      loop:
+        - testuser1
+        - testuser2
 
