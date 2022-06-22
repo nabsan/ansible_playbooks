@@ -8,5 +8,5 @@
       register: res_exists
     - name: debug var res_exists
       debug:
-        msg: "{{ res_exists }}"
+        msg: "{{ res_exists.stdout }}"
       
