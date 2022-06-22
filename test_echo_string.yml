@@ -3,7 +3,7 @@
   hosts: all
 
   tasks:
-    - name: Test win_ping
+    - name: Test echo
       command: echo "aa"
       register: res_exists
     - name: debug var res_exists
