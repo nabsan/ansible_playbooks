@@ -7,6 +7,6 @@
       command: echo "aa"
       register: res_exists
     - name: debug var res_exists
-    debug:
+      debug:
       msg: "{{ res_exists }}"
       
