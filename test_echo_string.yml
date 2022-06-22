@@ -1,0 +1,12 @@
+---
+- name: Test echo string
+  hosts: all
+
+  tasks:
+    - name: Test win_ping
+      command: echo "aa"
+      register: res_exists
+    - name: debug var res_exists
+    debug:
+      msg: "{{ res_exists }}"
+      
