@@ -1,8 +1,8 @@
 ---
 - name: Test echo linux-j
-    command: echo "linux-j"
-    register: res_exists
-    tags: lj,jimu
+  command: echo "linux-j"
+  register: res_exists
+  tags: lj,jimu
 - name: debug var res_exists
     debug:
       msg: "1.{{ res_exists.stdout }}"
