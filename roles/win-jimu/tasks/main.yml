@@ -1,1 +1,8 @@
 ---
+- name: Test echo win-j
+  command: echo "win-j"
+  register: res_exists
+  tags: wj,jimu
+- name: debug var res_exists
+  debug:
+    msg: "1.{{ res_exists.stdout }}"
