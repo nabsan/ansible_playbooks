@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: Target OS family
+      debug:
+        msg: '{{ ansible_os_family }}'
+    - name: Task for RedHat
+      debug:
+        msg: 'Task for RedHat'
+      when: ansible_os_family == 'RedHat'
+    - name: Task for Debian
+      debug:
+        msg: 'Task for Debian'
+      when: ansible_os_family == 'Debian'
