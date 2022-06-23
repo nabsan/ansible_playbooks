@@ -2,11 +2,12 @@
 - hosts: ws
   sudo: yes
   roles:
-    - role: role1
-      tags: win-jim
-    - role: role2
-      tags: lin-jim
-    - role: role3
-      tags: win-sei
-    - role: role4
-      tags: lin-sei
+    - role: win-jim
+      tags: wj
+    - role: lin-jim
+      tags: lj
+    - role: win-sei
+      tags: ws
+    - role: lin-sei
+      tags: ls
+      
