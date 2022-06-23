@@ -1,9 +1,9 @@
 ---
 - hosts: all
   roles:
-    - role: win-jim
+    - role: win-jimu
       tags: wj
-    - role: lin-jim
+    - role: lin-jimu
       tags: lj
     - role: win-sei
       tags: ws
