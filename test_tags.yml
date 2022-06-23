@@ -1,5 +1,5 @@
 ---
-- hosts: ws
+- hosts: all
   sudo: yes
   roles:
     - role: win-jim
