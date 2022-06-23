@@ -1,1 +1,8 @@
-
+---
+- name: Test echo win-s
+  command: echo "win-s"
+  register: res_exists
+  tags: ls,sei
+- name: debug var res_exists
+  debug:
+    msg: "1.{{ res_exists.stdout }}"
