@@ -4,5 +4,5 @@
   register: res_exists
   tags: lj,jimu
 - name: debug var res_exists
-    debug:
-      msg: "1.{{ res_exists.stdout }}"
+  debug:
+    msg: "1.{{ res_exists.stdout }}"
