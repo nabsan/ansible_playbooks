@@ -1,0 +1,27 @@
+- hosts: localhost
+  gather_facts: false
+  connection: ansible.builtin.local
+  tasks:
+    - name: pause X seconds
+      ansible.builtin.pause: 
+        seconds: "{{ x }}" 
+
+     #デフォルト4MBでPE(フィジカルエクステント作成例)
+    - name: Create a new primary partition for LVM
+      parted:
+        device: /dev/sdb
+        number: 1
+        flags: [ lvm ]
+        state: present
+
+    - name: Create a volume group on top of /dev/sda1 with physical extent size = 4MB
+      lvg:
+        vg: vgXX
+        pvs: /dev/sdb1
+        pesize: 4
+        state: present
+    - name: Create a logical volume the size of all remaining space in the volume group
+      lvol:
+        vg: VGXX
+        lv: LV_XX
+        size: 100%FREE
